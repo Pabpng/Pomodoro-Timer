@@ -23,7 +23,9 @@ function createWindow (){
     width: 500,
     height: 500,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      //preload: path.join(__dirname, 'preload.js')
+      nodeIntegration: true,
+      contextIsolation:false
     }
   })
 
@@ -32,7 +34,7 @@ function createWindow (){
 - Loads "index.html" into the window.
 - This file becomes the rendered process (Your UI) */
 
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile(path.join(__dirname, 'index.html'))
 }
 
 /* Waiting for Electron to be ready!
